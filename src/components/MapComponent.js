@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, InfoWindow, LoadScript, Marker } from '@react-google-maps/api';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './MapComponent.css';
 
 const mapContainerStyle = {
@@ -19,7 +19,7 @@ const MapComponent = ({ selectedDriver, onDriverSelect }) => {
     const [infoWindowPosition, setInfoWindowPosition] = useState(null);
 
     useEffect(() => {
-        axios.get('https://55kqzrxn-2011.inc1.devtunnels.ms/online-drivers')
+        axios.get('http://3.6.160.162:2011/online-drivers')
             .then(response => {
                 const drivers = response.data.drivers.map(driver => ({
                     ...driver,
@@ -28,6 +28,7 @@ const MapComponent = ({ selectedDriver, onDriverSelect }) => {
                         longitude: parseFloat(driver.driverLiveLocation.longitude)
                     }
                 }));
+                console.log(drivers, 'drivers')
                 setDrivers(drivers);
             })
             .catch(error => {

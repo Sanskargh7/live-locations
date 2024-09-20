@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './DriverTable.css';
 
 const DriverTable = ({ onDriverSelect }) => {
@@ -8,7 +8,7 @@ const DriverTable = ({ onDriverSelect }) => {
     const [itemsPerPage] = useState(10);
 
     useEffect(() => {
-        axios.get('https://55kqzrxn-2011.inc1.devtunnels.ms/online-drivers')
+        axios.get('http://3.6.160.162:2011/online-drivers')
             .then(response => {
                 setDrivers(response.data.drivers);
             })
