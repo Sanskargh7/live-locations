@@ -45,7 +45,7 @@ const MapComponent = ({ selectedDriver, onDriverSelect }) => {
                 return;
             }
 
-            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
+            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAIQFImpzEQQvwywJ-yesY55DUQiATSaME`)
                 .then(response => {
                     const results = response.data.results;
                     if (results && results.length > 0) {
